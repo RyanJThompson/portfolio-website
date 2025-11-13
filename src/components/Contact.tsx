@@ -2,7 +2,6 @@ import { Box, Container, Typography, TextField, Button, Stack, IconButton } from
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
 
@@ -28,10 +27,9 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: <EmailIcon />, label: 'Email', href: 'mailto:your.email@example.com' },
+    { icon: <EmailIcon />, label: 'Ryan_JThompson@outlook.com', href: 'mailto:Ryan_JThompson@outlook.com' },
+    { icon: <LinkedInIcon />, label: 'linkedin.com/in/ryanthom100', href: 'https://linkedin.com/in/ryanthom100' },
     { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com' },
-    { icon: <LinkedInIcon />, label: 'LinkedIn', href: 'https://linkedin.com' },
-    { icon: <TwitterIcon />, label: 'Twitter', href: 'https://twitter.com' },
   ];
 
   return (
@@ -314,7 +312,7 @@ const Contact = () => {
                   color: '#ffffff',
                 }}
               >
-                Available for Work
+                Let's Connect
               </Typography>
               <Typography
                 sx={{
@@ -322,7 +320,8 @@ const Contact = () => {
                   lineHeight: 1.8,
                 }}
               >
-                I'm currently available for freelance projects and full-time opportunities. Let's build something great together!
+                Currently working at Sky as a Front-End Engineer. Open to discussing new opportunities,
+                collaboration, and innovative projects. Phone: +44 7897 075240
               </Typography>
             </Box>
           </Box>
@@ -343,7 +342,7 @@ const Contact = () => {
               fontSize: '0.875rem',
             }}
           >
-            © 2024 Your Portfolio. Built with React, TypeScript, and Material UI.
+            © 2024 Ryan Thompson. Built with React, TypeScript, and Material UI.
           </Typography>
           <Typography
             sx={{
@@ -352,8 +351,7 @@ const Contact = () => {
               mt: 1,
             }}
           >
-            Designed with passion and code{' '}
-            <span style={{ color: '#00ff88' }}>✨</span>
+            Front-End Engineer at Sky | University of Leeds Graduate
           </Typography>
         </Box>
       </Container>

@@ -3,19 +3,34 @@ import { Box, Container, Typography, Chip } from '@mui/material';
 const Skills = () => {
   const skillCategories = [
     {
-      category: 'Frontend',
+      category: 'Languages',
       color: '#00ff88',
-      skills: ['React', 'TypeScript', 'JavaScript', 'Next.js', 'HTML5', 'CSS3', 'Material UI', 'Tailwind CSS', 'Redux', 'Vue.js'],
+      skills: ['JavaScript', 'TypeScript', 'Python', 'Shell (Bash)'],
     },
     {
-      category: 'Backend',
+      category: 'Frontend & Mobile',
       color: '#00ccff',
-      skills: ['Node.js', 'Express', 'Python', 'Django', 'REST APIs', 'GraphQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Prisma'],
+      skills: ['React Native', 'React', 'Redux', 'React Query', 'Expo', 'Next.js', 'Vite', 'SwiftUI', 'Tailwind CSS', 'Storybook', 'Contentstack'],
     },
     {
-      category: 'DevOps & Tools',
+      category: 'Backend & APIs',
       color: '#ff6b6b',
-      skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'Jest', 'Webpack', 'Vite', 'Linux', 'Nginx', 'Kubernetes'],
+      skills: ['Node.js', 'GraphQL', 'Redis', 'Supabase'],
+    },
+    {
+      category: 'Cloud & DevOps',
+      color: '#ffd166',
+      skills: ['Google Cloud Platform (GCP)', 'AWS', 'Concourse CI', 'Octopus Deploy', 'Firebase'],
+    },
+    {
+      category: 'Testing & Automation',
+      color: '#06ffa5',
+      skills: ['Playwright', 'WebDriverIO', 'Jest', 'CI/CD Integration'],
+    },
+    {
+      category: 'Monitoring & Analytics',
+      color: '#ff66c4',
+      skills: ['Grafana', 'Kibana', 'Optimizely'],
     },
   ];
 
@@ -76,7 +91,7 @@ const Skills = () => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: { xs: '1fr', lg: 'repeat(3, 1fr)' },
+            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
             gap: 3,
           }}
         >
