@@ -6,52 +6,18 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 const Projects = () => {
   const projects = [
     {
-      title: 'Task Management Platform',
-      description: 'Full-stack productivity platform with real-time Supabase sync, drag-and-drop scheduling, and hierarchical subtask management. Engineered with RLS-secured APIs and optimistic UI updates.',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
-      technologies: ['React 19', 'TypeScript', 'Supabase', 'Real-time Sync'],
-      github: '#',
-      demo: '#',
-      featured: true,
-    },
-    {
-      title: 'Sky Subscription Platform',
-      description: 'Cross-platform TV subscription experience in React Native, driving 20,000+ new subscriptions. Improved checkout experience and accelerated release velocity by 50%.',
-      image: 'https://images.unsplash.com/photo-1593078165-e5c2e24ac8b6?w=800&q=80',
-      technologies: ['React Native', 'TypeScript', 'GraphQL', 'GCP'],
-      github: '#',
-      demo: '#',
-      featured: true,
-    },
-    {
-      title: 'Ad Accessibility System',
-      description: 'Architected native Android and Objective-C intercepts ensuring 100% ad accessibility coverage with normalized event data and screen-reader compatibility.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      technologies: ['Android', 'Objective-C', 'React Native', 'Accessibility'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Traffic Management Service',
-      description: 'Node.js + Redis service monitoring real-time session rates and dynamically throttling logins to protect backend reliability during peak campaigns.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-      technologies: ['Node.js', 'Redis', 'Real-time Monitoring'],
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'End-to-End Testing Framework',
-      description: 'Built Playwright testing framework from scratch, expanding coverage from 0% to 90% of core user journeys and cutting post-release defects by 60%.',
+      title: 'Language Toolkit',
+      description: 'A comprehensive language learning platform featuring real-time translation, vocabulary management, and interactive exercises. Built with modern web technologies for seamless user experience.',
       image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80',
-      technologies: ['Playwright', 'TypeScript', 'CI/CD', 'TeamCity'],
+      technologies: ['React', 'TypeScript', 'Material UI', 'API Integration'],
       github: '#',
       demo: '#',
     },
     {
-      title: 'Test Account Provisioning',
-      description: 'Automated test account setup in Node.js, reducing setup time by 95% (10 min → 30 sec) and freeing engineers to focus on feature delivery.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-      technologies: ['Node.js', 'Automation', 'DevOps'],
+      title: 'Ecommerce Store',
+      description: 'Full-featured online shopping platform with product catalog, shopping cart, secure checkout, and order management. Designed for optimal performance and user engagement.',
+      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
+      technologies: ['React', 'TypeScript', 'Payment Gateway', 'Database'],
       github: '#',
       demo: '#',
     },
@@ -121,7 +87,7 @@ const Projects = () => {
             <Box
               key={index}
               sx={{
-                gridColumn: project.featured ? { xs: 'span 1', md: 'span 2' } : 'span 1',
+                gridColumn: 'span 1',
                 position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
@@ -149,7 +115,7 @@ const Projects = () => {
               <Box
                 sx={{
                   position: 'relative',
-                  height: project.featured ? { xs: '250px', md: '400px' } : { xs: '200px', md: '300px' },
+                  height: { xs: '200px', md: '300px' },
                   overflow: 'hidden',
                   background: 'rgba(0, 0, 0, 0.5)',
                 }}
@@ -197,11 +163,11 @@ const Projects = () => {
                   }}
                 >
                   <Typography
-                    variant={project.featured ? 'h3' : 'h4'}
+                    variant="h4"
                     sx={{
                       fontWeight: 700,
                       color: '#ffffff',
-                      fontSize: project.featured ? { xs: '1.75rem', md: '2.5rem' } : { xs: '1.5rem', md: '2rem' },
+                      fontSize: { xs: '1.5rem', md: '2rem' },
                     }}
                   >
                     {project.title}
