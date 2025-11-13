@@ -18,23 +18,23 @@ const About = () => {
   const highlights = [
     {
       icon: <CodeIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable code that stands the test of time',
+      title: 'Cross-Platform Development',
+      description: 'Building seamless experiences across web and mobile with React and React Native',
     },
     {
       icon: <LightbulbIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Innovation',
-      description: 'Exploring cutting-edge technologies and creative solutions',
+      title: 'Performance Optimization',
+      description: 'Accelerated release velocity by 50% through decoupling architecture and GCP optimization',
     },
     {
       icon: <SpeedIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Performance',
-      description: 'Optimizing for speed and delivering lightning-fast experiences',
+      title: 'Scalable Solutions',
+      description: 'Delivered features driving 20,000+ new subscriptions with real-time traffic management',
     },
     {
       icon: <AutoAwesomeIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Attention to Detail',
-      description: 'Pixel-perfect designs and seamless user interactions',
+      title: 'Test Automation',
+      description: 'Built end-to-end testing frameworks from scratch, expanding coverage to 90%',
     },
   ];
 
@@ -71,9 +71,9 @@ const About = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Building the Future,
+            Front-End Engineer
             <br />
-            One Line at a Time
+            at Sky
           </Typography>
           <Typography
             variant="h6"
@@ -86,8 +86,9 @@ const About = () => {
               fontWeight: 400,
             }}
           >
-            Passionate developer with expertise in modern web technologies. I transform
-            complex challenges into elegant, scalable solutions.
+            Software Engineer with 3.5+ years of experience building cross-platform applications
+            at Sky. First Class Honours graduate from University of Leeds specializing in React,
+            React Native, TypeScript, and cloud technologies.
           </Typography>
         </Box>
 
@@ -250,11 +251,11 @@ const About = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Let's Build Something Amazing Together
+            Proven Track Record at Scale
           </Typography>
           <Typography sx={{ color: '#a0a0a0', fontSize: '1.125rem', lineHeight: 1.8 }}>
-            I'm always excited to collaborate on innovative projects and bring creative ideas to life.
-            Whether it's a startup MVP or enterprise solution, I'm here to help.
+            At Sky, I've delivered features impacting millions of users, driving 20,000+ subscriptions
+            and improving system reliability through innovative solutions in React Native, Node.js, and GCP.
           </Typography>
         </Box>
       </Container>

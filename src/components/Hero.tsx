@@ -156,17 +156,7 @@ const Hero = () => {
               backgroundClip: 'text',
             }}
           >
-            Crafting Digital
-            <br />
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #00ff88 0%, #00ccff 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Experiences
-            </span>
+            Ryan Thompson
           </Typography>
 
           {/* Subtitle */}
@@ -182,8 +172,17 @@ const Hero = () => {
               mx: { xs: 'auto', md: 0 },
             }}
           >
-            Full-stack developer specializing in building exceptional digital products.
-            Turning complex problems into elegant solutions.
+            Front-End / Full-Stack Engineer
+            <br />
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #00ff88 0%, #00ccff 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              React · React Native · TypeScript · GraphQL · GCP
+            </span>
           </Typography>
 
           {/* CTA Buttons */}
@@ -270,9 +269,9 @@ const Hero = () => {
             }}
           >
             {[
-              { number: '5+', label: 'Years Experience' },
-              { number: '50+', label: 'Projects Completed' },
-              { number: '30+', label: 'Happy Clients' },
+              { number: '3.5+', label: 'Years Experience' },
+              { number: 'Sky', label: 'Current Company' },
+              { number: '1st', label: 'Class Honours' },
             ].map((stat, index) => (
               <Box key={index} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography
