@@ -34,7 +34,7 @@ const About = () => {
     {
       icon: <AutoAwesomeIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
       title: 'Test Automation',
-      description: 'Built end-to-end testing frameworks from scratch, expanding coverage to 90%',
+      description: 'Built end-to-end testing frameworks from scratch, using Playwright and WebDriverIO',
     },
   ];
 
@@ -87,8 +87,8 @@ const About = () => {
             }}
           >
             Software Engineer with 4+ years of experience building cross-platform applications
-            at Sky. First Class Honours graduate from University of Leeds specializing in React,
-            React Native, TypeScript, and cloud technologies.
+            at Sky. First Class Honours CS graduate from University of Leeds specializing in React,
+            React Native, TypeScript, Node.js, GraphQL and cloud technologies.
           </Typography>
         </Box>
 
@@ -254,7 +254,7 @@ const About = () => {
             Proven Track Record at Scale
           </Typography>
           <Typography sx={{ color: '#a0a0a0', fontSize: '1.125rem', lineHeight: 1.8 }}>
-            At Sky, I've delivered features impacting millions of users, driving 20,000+ subscriptions
+            At Sky, I've delivered features impacting millions of users, driving tens of thousands of subscriptions
             and improving system reliability through innovative solutions in React Native, Node.js, and GCP.
           </Typography>
         </Box>

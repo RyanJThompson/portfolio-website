@@ -10,7 +10,7 @@ const Skills = () => {
     {
       category: 'Frontend & Mobile',
       color: '#00ccff',
-      skills: ['React Native', 'React', 'Redux', 'React Query', 'Expo', 'Next.js', 'Vite', 'SwiftUI', 'Tailwind CSS', 'Storybook', 'Contentstack'],
+      skills: ['React Native', 'React', 'Redux', 'React Query', 'Expo', 'Next.js', 'Vite', 'SwiftUI', 'Tailwind CSS', 'Material UI ', 'Radix UI', 'Storybook', 'Contentstack'],
     },
     {
       category: 'Backend & APIs',

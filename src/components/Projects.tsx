@@ -1,25 +1,22 @@
 import { Box, Container, Typography, Chip, Stack, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LaunchIcon from '@mui/icons-material/Launch';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 const Projects = () => {
   const projects = [
     {
       title: 'Language Toolkit',
-      description: 'A comprehensive language learning platform featuring real-time translation, vocabulary management, and interactive exercises. Built with modern web technologies for seamless user experience.',
+      description: 'A comprehensive language learning platform featuring real-time translation, vocabulary management, EPUB reader and OCR Scanner. Built with React Native, Typescript and native module integration. Actively being developed as it is a passion of mine.',
       image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80',
-      technologies: ['React', 'TypeScript', 'Material UI', 'API Integration'],
-      github: '#',
-      demo: '#',
+      technologies: ['React Native', 'TypeScript', 'Native Modules', 'AWS'],
+      github: 'https://github.com/ryan-thompson0/LangLang-Expo',
     },
     {
       title: 'Ecommerce Store',
-      description: 'Full-featured online shopping platform with product catalog, shopping cart, secure checkout, and order management. Designed for optimal performance and user engagement.',
+      description: 'Full-featured online shopping platform with demo product catalog, shopping cart, secure checkout, and order management. Designed for optimal performance and user engagement.',
       image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      technologies: ['React', 'TypeScript', 'Payment Gateway', 'Database'],
-      github: '#',
-      demo: '#',
+      technologies: ['React', 'Next.js', 'Zod', 'Vite', 'Radix UI' ,'TypeScript', 'API Integration'],
+      github: 'https://github.com/ryan-thompson0/ECommerceStore',
     },
   ];
 
@@ -216,6 +213,8 @@ const Projects = () => {
                 <Stack direction="row" spacing={2}>
                   <IconButton
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     sx={{
                       color: '#ffffff',
                       border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -229,22 +228,6 @@ const Projects = () => {
                     }}
                   >
                     <GitHubIcon />
-                  </IconButton>
-                  <IconButton
-                    href={project.demo}
-                    sx={{
-                      color: '#ffffff',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      borderRadius: '8px',
-                      '&:hover': {
-                        bgcolor: 'rgba(0, 255, 136, 0.1)',
-                        borderColor: '#00ff88',
-                        color: '#00ff88',
-                      },
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    <LaunchIcon />
                   </IconButton>
                 </Stack>
               </Box>
