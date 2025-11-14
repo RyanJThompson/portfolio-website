@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 import { keyframes } from '@emotion/react';
 import { useState, useEffect } from 'react';
 
@@ -230,6 +231,33 @@ const Hero = () => {
               }}
             >
               View Projects
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              component="a"
+              href={`${import.meta.env.BASE_URL}Ryan_Thompson_CV.pdf`}
+              download="Ryan_Thompson_CV.pdf"
+              startIcon={<DownloadIcon />}
+              sx={{
+                borderColor: 'rgba(0, 204, 255, 0.4)',
+                color: '#00ccff',
+                px: 4,
+                py: 1.5,
+                fontSize: '1rem',
+                fontWeight: 700,
+                borderRadius: '12px',
+                borderWidth: '2px',
+                '&:hover': {
+                  borderColor: '#00ccff',
+                  bgcolor: 'rgba(0, 204, 255, 0.1)',
+                  transform: 'translateY(-2px)',
+                  borderWidth: '2px',
+                },
+                transition: 'all 0.3s',
+              }}
+            >
+              Download CV
             </Button>
             <Button
               variant="outlined"
