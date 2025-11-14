@@ -36,7 +36,6 @@ const Contact = () => {
     <Box
       id="contact"
       sx={{
-        py: { xs: 10, md: 15 },
         position: 'relative',
         background: 'linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(17, 17, 17, 0.5) 100%)',
       }}

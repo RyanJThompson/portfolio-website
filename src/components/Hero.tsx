@@ -63,7 +63,6 @@ const Hero = () => {
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        pt: { xs: 10, md: 8 },
       }}
     >
       {/* Floating orbs */}
