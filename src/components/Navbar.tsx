@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, useTheme, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
@@ -115,23 +116,41 @@ const Navbar = () => {
           </Typography>
 
           {isMobile ? (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleDrawerToggle}
-              sx={{
-                color: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                borderRadius: '8px',
-                '&:hover': {
-                  bgcolor: 'rgba(0, 255, 136, 0.1)',
-                  borderColor: '#00ff88',
-                },
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
+            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+              <IconButton
+                href="https://github.com/ryan-thompson0"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: '#ffffff',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '8px',
+                  '&:hover': {
+                    bgcolor: 'rgba(0, 255, 136, 0.1)',
+                    borderColor: '#00ff88',
+                  },
+                }}
+              >
+                <GitHubIcon />
+              </IconButton>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="end"
+                onClick={handleDrawerToggle}
+                sx={{
+                  color: '#ffffff',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '8px',
+                  '&:hover': {
+                    bgcolor: 'rgba(0, 255, 136, 0.1)',
+                    borderColor: '#00ff88',
+                  },
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           ) : (
             <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
               {menuItems.map((item) => (
@@ -171,6 +190,26 @@ const Navbar = () => {
                   {item.label}
                 </Button>
               ))}
+              <IconButton
+                href="https://github.com/ryan-thompson0"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: '#ffffff',
+                  ml: 1,
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  borderRadius: '8px',
+                  '&:hover': {
+                    bgcolor: 'rgba(0, 255, 136, 0.1)',
+                    borderColor: '#00ff88',
+                    color: '#00ff88',
+                    transform: 'translateY(-2px)',
+                  },
+                  transition: 'all 0.3s',
+                }}
+              >
+                <GitHubIcon />
+              </IconButton>
               <Button
                 variant="outlined"
                 onClick={() => scrollToSection('contact')}
