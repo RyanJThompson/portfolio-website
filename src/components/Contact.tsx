@@ -1,15 +1,21 @@
-import { Box, Container, Typography, TextField, Button, Stack, IconButton } from '@mui/material';
+import { Box, Container, Typography, TextField, Button, Stack, IconButton, Alert, CircularProgress } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{type: 'success' | 'error' | null, message: string}>({
+    type: null,
+    message: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,11 +25,43 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      // Replace these with your EmailJS credentials
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Ryan Thompson',
+        },
+        publicKey
+      );
+
+      setStatus({
+        type: 'success',
+        message: 'Thank you for your message! I will get back to you soon.'
+      });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again or contact me directly at Ryan_JThompson@outlook.com'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const socialLinks = [
@@ -197,11 +235,27 @@ const Contact = () => {
                     },
                   }}
                 />
+
+                {status.type && (
+                  <Alert
+                    severity={status.type}
+                    sx={{
+                      borderRadius: '12px',
+                      '& .MuiAlert-message': {
+                        color: '#ffffff'
+                      }
+                    }}
+                  >
+                    {status.message}
+                  </Alert>
+                )}
+
                 <Button
                   type="submit"
                   variant="contained"
                   size="large"
-                  endIcon={<SendIcon />}
+                  disabled={loading}
+                  endIcon={loading ? <CircularProgress size={20} sx={{ color: '#0a0a0a' }} /> : <SendIcon />}
                   sx={{
                     bgcolor: '#00ff88',
                     color: '#0a0a0a',
@@ -214,10 +268,14 @@ const Contact = () => {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 10px 40px rgba(0, 255, 136, 0.3)',
                     },
+                    '&:disabled': {
+                      bgcolor: '#a0a0a0',
+                      color: '#0a0a0a',
+                    },
                     transition: 'all 0.3s',
                   }}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </Button>
               </Stack>
             </form>
