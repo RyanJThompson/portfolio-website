@@ -1,39 +1,15 @@
-import { Box, Container, Typography, Button, Stack } from '@mui/material';
+import { Box, Container, Typography, Button, Stack, IconButton } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-import { keyframes } from '@emotion/react';
 import { useState, useEffect } from 'react';
-
-const fadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const float = keyframes`
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-`;
-
-const glow = keyframes`
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 255, 136, 0.6), 0 0 60px rgba(0, 204, 255, 0.3);
-  }
-`;
+import { fadeInUp, float, glow } from '../theme/animations';
+import { useScrollToSection } from '../hooks';
+import { stats } from '../data/stats';
+import { socialLinks } from '../data/socials';
+import { COLORS } from '../constants';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const scrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -46,13 +22,6 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <Box
@@ -134,7 +103,7 @@ const Hero = () => {
               sx={{
                 fontSize: '0.875rem',
                 fontWeight: 500,
-                color: '#00ff88',
+                color: COLORS.primary,
                 letterSpacing: '0.05em',
               }}
             >
@@ -285,6 +254,42 @@ const Hero = () => {
             </Button>
           </Stack>
 
+          {/* Contact Links */}
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{
+              pt: 3,
+              pb: 4,
+              justifyContent: { xs: 'center', md: 'flex-start' },
+            }}
+          >
+            {socialLinks.map((link, index) => (
+              <IconButton
+                key={index}
+                component="a"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: COLORS.text.secondary,
+                  border: '2px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  p: 1.5,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    color: COLORS.primary,
+                    borderColor: COLORS.primary,
+                    bgcolor: 'rgba(0, 255, 136, 0.1)',
+                    transform: 'translateY(-4px)',
+                  },
+                }}
+              >
+                {link.icon}
+              </IconButton>
+            ))}
+          </Stack>
+
           {/* Stats */}
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -295,11 +300,7 @@ const Hero = () => {
               justifyContent: { xs: 'center', md: 'flex-start' },
             }}
           >
-            {[
-              { number: '4+', label: 'Years Experience' },
-              { number: 'Sky', label: 'Current Company' },
-              { number: '1st', label: 'Class Honours' },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <Box key={index} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                 <Typography
                   sx={{
@@ -316,7 +317,7 @@ const Hero = () => {
                 <Typography
                   sx={{
                     fontSize: '0.875rem',
-                    color: '#a0a0a0',
+                    color: COLORS.text.secondary,
                     fontWeight: 500,
                   }}
                 >

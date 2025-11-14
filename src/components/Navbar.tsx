@@ -1,14 +1,17 @@
 import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, useTheme, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import { useState, useEffect } from 'react';
+import { useScrollToSection } from '../hooks';
+import { NAV_ITEMS, COLORS } from '../constants';
+import { socialLinks } from '../data/socials';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const scrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,27 +26,16 @@ const Navbar = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavClick = (sectionId: string) => {
+    scrollToSection(sectionId);
     setMobileOpen(false);
   };
-
-  const menuItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Contact', id: 'contact' },
-  ];
 
   const drawer = (
     <Box
       sx={{
         height: '100%',
-        bgcolor: '#0a0a0a',
+        bgcolor: COLORS.background.default,
         p: 3,
       }}
     >
@@ -53,10 +45,10 @@ const Navbar = () => {
         </IconButton>
       </Box>
       <List sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        {menuItems.map((item) => (
+        {NAV_ITEMS.map((item) => (
           <ListItem
-            key={item.id}
-            onClick={() => scrollToSection(item.id)}
+            key={item.href}
+            onClick={() => handleNavClick(item.href)}
             sx={{
               cursor: 'pointer',
               borderRadius: '8px',
@@ -71,7 +63,7 @@ const Navbar = () => {
               sx={{
                 fontSize: '1.5rem',
                 fontWeight: 600,
-                color: '#ffffff',
+                color: COLORS.text.primary,
               }}
             >
               {item.label}
@@ -79,6 +71,42 @@ const Navbar = () => {
           </ListItem>
         ))}
       </List>
+
+      {/* Social Links in Mobile Drawer */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: 2,
+          mt: 4,
+          pt: 4,
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        }}
+      >
+        {socialLinks.map((link, index) => (
+          <IconButton
+            key={index}
+            component="a"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: COLORS.text.primary,
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '12px',
+              p: 1.5,
+              '&:hover': {
+                bgcolor: 'rgba(0, 255, 136, 0.1)',
+                borderColor: COLORS.primary,
+                color: COLORS.primary,
+              },
+              transition: 'all 0.3s',
+            }}
+          >
+            {link.icon}
+          </IconButton>
+        ))}
+      </Box>
     </Box>
   );
 
@@ -117,29 +145,34 @@ const Navbar = () => {
 
           {isMobile ? (
             <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-              <IconButton
-                href="https://github.com/ryan-thompson0"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: '#ffffff',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: '8px',
-                  '&:hover': {
-                    bgcolor: 'rgba(0, 255, 136, 0.1)',
-                    borderColor: '#00ff88',
-                  },
-                }}
-              >
-                <GitHubIcon />
-              </IconButton>
+              {socialLinks.slice(0, 1).map((link, index) => (
+                <IconButton
+                  key={index}
+                  component="a"
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    color: COLORS.text.primary,
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: '8px',
+                    p: 1,
+                    '&:hover': {
+                      bgcolor: 'rgba(0, 255, 136, 0.1)',
+                      borderColor: COLORS.primary,
+                    },
+                  }}
+                >
+                  {link.icon}
+                </IconButton>
+              ))}
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="end"
                 onClick={handleDrawerToggle}
                 sx={{
-                  color: '#ffffff',
+                  color: COLORS.text.primary,
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                   borderRadius: '8px',
                   '&:hover': {
@@ -153,12 +186,12 @@ const Navbar = () => {
             </Box>
           ) : (
             <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-              {menuItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <Button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href)}
                   sx={{
-                    color: '#ffffff',
+                    color: COLORS.text.primary,
                     px: 2.5,
                     py: 1,
                     fontSize: '0.875rem',
@@ -168,7 +201,7 @@ const Navbar = () => {
                     overflow: 'hidden',
                     '&:hover': {
                       bgcolor: 'rgba(0, 255, 136, 0.1)',
-                      color: '#00ff88',
+                      color: COLORS.primary,
                     },
                     '&:before': {
                       content: '""',
@@ -190,33 +223,39 @@ const Navbar = () => {
                   {item.label}
                 </Button>
               ))}
-              <IconButton
-                href="https://github.com/ryan-thompson0"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: '#ffffff',
-                  ml: 1,
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: '8px',
-                  '&:hover': {
-                    bgcolor: 'rgba(0, 255, 136, 0.1)',
-                    borderColor: '#00ff88',
-                    color: '#00ff88',
-                    transform: 'translateY(-2px)',
-                  },
-                  transition: 'all 0.3s',
-                }}
-              >
-                <GitHubIcon />
-              </IconButton>
+              <Box sx={{ display: 'flex', gap: 0.5, ml: 1 }}>
+                {socialLinks.map((link, index) => (
+                  <IconButton
+                    key={index}
+                    component="a"
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      color: COLORS.text.primary,
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '8px',
+                      p: 1,
+                      '&:hover': {
+                        bgcolor: 'rgba(0, 255, 136, 0.1)',
+                        borderColor: COLORS.primary,
+                        color: COLORS.primary,
+                        transform: 'translateY(-2px)',
+                      },
+                      transition: 'all 0.3s',
+                    }}
+                  >
+                    {link.icon}
+                  </IconButton>
+                ))}
+              </Box>
               <Button
                 variant="outlined"
                 onClick={() => scrollToSection('contact')}
                 sx={{
                   ml: 1,
                   borderColor: '#00ff88',
-                  color: '#00ff88',
+                  color: COLORS.primary,
                   px: 3,
                   py: 1,
                   fontSize: '0.875rem',

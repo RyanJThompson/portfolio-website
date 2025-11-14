@@ -1,74 +1,11 @@
 import { Box, Container, Typography, TextField, Button, Stack, IconButton, Alert, CircularProgress } from '@mui/material';
-import EmailIcon from '@mui/icons-material/Email';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
-import { useState } from 'react';
-import emailjs from '@emailjs/browser';
+import { useContactForm } from '../hooks';
+import { socialLinks } from '../data/socials';
+import { COLORS } from '../constants';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<{type: 'success' | 'error' | null, message: string}>({
-    type: null,
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatus({ type: null, message: '' });
-
-    try {
-      // Replace these with your EmailJS credentials
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: 'Ryan Thompson',
-        },
-        publicKey
-      );
-
-      setStatus({
-        type: 'success',
-        message: 'Thank you for your message! I will get back to you soon.'
-      });
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      setStatus({
-        type: 'error',
-        message: 'Failed to send message. Please try again or contact me directly at Ryan_JThompson@outlook.com'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const socialLinks = [
-    { icon: <EmailIcon />, label: 'Ryan_JThompson@outlook.com', href: 'mailto:Ryan_JThompson@outlook.com' },
-    { icon: <LinkedInIcon />, label: 'linkedin.com/in/ryanthom100', href: 'https://linkedin.com/in/ryanthom100' },
-    { icon: <GitHubIcon />, label: 'GitHub', href: 'https://github.com' },
-  ];
+  const { formData, loading, status, handleChange, handleSubmit } = useContactForm();
 
   return (
     <Box
@@ -85,7 +22,7 @@ const Contact = () => {
             sx={{
               fontSize: { xs: '0.875rem', md: '1rem' },
               fontWeight: 600,
-              color: '#00ff88',
+              color: COLORS.primary,
               letterSpacing: '0.1em',
               mb: 2,
             }}
@@ -110,7 +47,7 @@ const Contact = () => {
           <Typography
             variant="h6"
             sx={{
-              color: '#a0a0a0',
+              color: COLORS.text.secondary,
               maxWidth: '700px',
               mx: 'auto',
               lineHeight: 1.8,
@@ -165,9 +102,9 @@ const Contact = () => {
                       },
                     },
                     '& .MuiInputLabel-root': {
-                      color: '#a0a0a0',
+                      color: COLORS.text.secondary,
                       '&.Mui-focused': {
-                        color: '#00ff88',
+                        color: COLORS.primary,
                       },
                     },
                   }}
@@ -196,9 +133,9 @@ const Contact = () => {
                       },
                     },
                     '& .MuiInputLabel-root': {
-                      color: '#a0a0a0',
+                      color: COLORS.text.secondary,
                       '&.Mui-focused': {
-                        color: '#00ff88',
+                        color: COLORS.primary,
                       },
                     },
                   }}
@@ -228,9 +165,9 @@ const Contact = () => {
                       },
                     },
                     '& .MuiInputLabel-root': {
-                      color: '#a0a0a0',
+                      color: COLORS.text.secondary,
                       '&.Mui-focused': {
-                        color: '#00ff88',
+                        color: COLORS.primary,
                       },
                     },
                   }}
@@ -331,7 +268,7 @@ const Contact = () => {
                         bgcolor: 'rgba(0, 255, 136, 0.05)',
                         transform: 'translateX(10px)',
                         '& .social-icon': {
-                          color: '#00ff88',
+                          color: COLORS.primary,
                         },
                       },
                     }}
@@ -339,7 +276,7 @@ const Contact = () => {
                     <IconButton
                       className="social-icon"
                       sx={{
-                        color: '#a0a0a0',
+                        color: COLORS.text.secondary,
                         bgcolor: 'rgba(255, 255, 255, 0.05)',
                         transition: 'color 0.3s ease',
                       }}
@@ -373,7 +310,7 @@ const Contact = () => {
               </Typography>
               <Typography
                 sx={{
-                  color: '#a0a0a0',
+                  color: COLORS.text.secondary,
                   lineHeight: 1.8,
                 }}
               >
@@ -395,7 +332,7 @@ const Contact = () => {
         >
           <Typography
             sx={{
-              color: '#a0a0a0',
+              color: COLORS.text.secondary,
               fontSize: '0.875rem',
             }}
           >
@@ -403,7 +340,7 @@ const Contact = () => {
           </Typography>
           <Typography
             sx={{
-              color: '#a0a0a0',
+              color: COLORS.text.secondary,
               fontSize: '0.875rem',
               mt: 1,
             }}

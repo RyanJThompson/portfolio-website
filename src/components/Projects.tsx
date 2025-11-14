@@ -1,24 +1,10 @@
 import { Box, Container, Typography, Chip, Stack, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { projects } from '../data/projects';
+import { COLORS } from '../constants';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Language Toolkit',
-      description: 'A comprehensive language learning platform featuring real-time translation, vocabulary management, EPUB reader and OCR Scanner. Built with React Native, Typescript and native module integration. Actively being developed as it is a passion of mine.',
-      image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80',
-      technologies: ['React Native', 'TypeScript', 'Native Modules', 'AWS'],
-      github: 'https://github.com/ryan-thompson0/LangLang-Expo',
-    },
-    {
-      title: 'Ecommerce Store',
-      description: 'Full-featured online shopping platform with demo product catalog, shopping cart, secure checkout, and order management. Designed for optimal performance and user engagement.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-      technologies: ['React', 'Next.js', 'Zod', 'Vite', 'Radix UI' ,'TypeScript', 'API Integration'],
-      github: 'https://github.com/ryan-thompson0/ECommerceStore',
-    },
-  ];
 
   return (
     <Box
@@ -35,7 +21,7 @@ const Projects = () => {
             sx={{
               fontSize: { xs: '0.875rem', md: '1rem' },
               fontWeight: 600,
-              color: '#00ff88',
+              color: COLORS.primary,
               letterSpacing: '0.1em',
               mb: 2,
             }}
@@ -60,7 +46,7 @@ const Projects = () => {
           <Typography
             variant="h6"
             sx={{
-              color: '#a0a0a0',
+              color: COLORS.text.secondary,
               maxWidth: '700px',
               mx: 'auto',
               lineHeight: 1.8,
@@ -163,7 +149,7 @@ const Projects = () => {
                     variant="h4"
                     sx={{
                       fontWeight: 700,
-                      color: '#ffffff',
+                      color: COLORS.text.primary,
                       fontSize: { xs: '1.5rem', md: '2rem' },
                     }}
                   >
@@ -172,7 +158,7 @@ const Projects = () => {
                   <ArrowOutwardIcon
                     className="project-arrow"
                     sx={{
-                      color: '#00ff88',
+                      color: COLORS.primary,
                       fontSize: 32,
                       transition: 'transform 0.3s ease',
                     }}
@@ -181,7 +167,7 @@ const Projects = () => {
 
                 <Typography
                   sx={{
-                    color: '#a0a0a0',
+                    color: COLORS.text.secondary,
                     fontSize: { xs: '0.9rem', md: '1rem' },
                     lineHeight: 1.7,
                     mb: 3,
@@ -198,7 +184,7 @@ const Projects = () => {
                       label={tech}
                       sx={{
                         bgcolor: 'rgba(0, 255, 136, 0.1)',
-                        color: '#00ff88',
+                        color: COLORS.primary,
                         fontWeight: 600,
                         fontSize: '0.75rem',
                         border: '1px solid rgba(0, 255, 136, 0.3)',
@@ -216,13 +202,13 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: '#ffffff',
+                      color: COLORS.text.primary,
                       border: '1px solid rgba(255, 255, 255, 0.2)',
                       borderRadius: '8px',
                       '&:hover': {
                         bgcolor: 'rgba(0, 255, 136, 0.1)',
                         borderColor: '#00ff88',
-                        color: '#00ff88',
+                        color: COLORS.primary,
                       },
                       transition: 'all 0.3s ease',
                     }}

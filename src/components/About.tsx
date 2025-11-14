@@ -1,42 +1,9 @@
 import { Box, Container, Typography } from '@mui/material';
-import { keyframes } from '@emotion/react';
-import CodeIcon from '@mui/icons-material/Code';
-import LightbulbIcon from '@mui/icons-material/Lightbulb';
-import SpeedIcon from '@mui/icons-material/Speed';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-
-const shimmer = keyframes`
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-`;
+import { shimmer } from '../theme/animations';
+import { highlights } from '../data/about';
+import { COLORS } from '../constants';
 
 const About = () => {
-  const highlights = [
-    {
-      icon: <CodeIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Cross-Platform Development',
-      description: 'Building seamless experiences across web and mobile with React and React Native',
-    },
-    {
-      icon: <LightbulbIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Performance Optimization',
-      description: 'Accelerated release velocity by 50% through decoupling architecture and GCP optimization',
-    },
-    {
-      icon: <SpeedIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Scalable Solutions',
-      description: 'Delivered features driving 20,000+ new subscriptions with real-time traffic management',
-    },
-    {
-      icon: <AutoAwesomeIcon sx={{ fontSize: { xs: 40, md: 50 } }} />,
-      title: 'Test Automation',
-      description: 'Built end-to-end testing frameworks from scratch, using Playwright and WebDriverIO',
-    },
-  ];
 
   return (
     <Box
@@ -53,7 +20,7 @@ const About = () => {
             sx={{
               fontSize: { xs: '0.875rem', md: '1rem' },
               fontWeight: 600,
-              color: '#00ff88',
+              color: COLORS.primary,
               letterSpacing: '0.1em',
               mb: 2,
             }}
@@ -133,11 +100,11 @@ const About = () => {
               },
             }}
           >
-            <Box sx={{ color: '#00ff88', mb: 2 }}>{highlights[0].icon}</Box>
+            <Box sx={{ color: COLORS.primary, mb: 2 }}>{highlights[0].icon}</Box>
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
               {highlights[0].title}
             </Typography>
-            <Typography sx={{ color: '#a0a0a0', fontSize: '1.125rem', lineHeight: 1.6 }}>
+            <Typography sx={{ color: COLORS.text.secondary, fontSize: '1.125rem', lineHeight: 1.6 }}>
               {highlights[0].description}
             </Typography>
           </Box>
@@ -161,11 +128,11 @@ const About = () => {
               },
             }}
           >
-            <Box sx={{ color: '#00ccff', mb: 2 }}>{highlights[1].icon}</Box>
+            <Box sx={{ color: COLORS.secondary, mb: 2 }}>{highlights[1].icon}</Box>
             <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
               {highlights[1].title}
             </Typography>
-            <Typography sx={{ color: '#a0a0a0', fontSize: '1rem', lineHeight: 1.6 }}>
+            <Typography sx={{ color: COLORS.text.secondary, fontSize: '1rem', lineHeight: 1.6 }}>
               {highlights[1].description}
             </Typography>
           </Box>
@@ -189,11 +156,11 @@ const About = () => {
               },
             }}
           >
-            <Box sx={{ color: '#00ff88', mb: 2 }}>{highlights[2].icon}</Box>
+            <Box sx={{ color: COLORS.primary, mb: 2 }}>{highlights[2].icon}</Box>
             <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
               {highlights[2].title}
             </Typography>
-            <Typography sx={{ color: '#a0a0a0', fontSize: '1rem', lineHeight: 1.6 }}>
+            <Typography sx={{ color: COLORS.text.secondary, fontSize: '1rem', lineHeight: 1.6 }}>
               {highlights[2].description}
             </Typography>
           </Box>
@@ -220,11 +187,11 @@ const About = () => {
               },
             }}
           >
-            <Box sx={{ color: '#00ccff', mb: 2 }}>{highlights[3].icon}</Box>
+            <Box sx={{ color: COLORS.secondary, mb: 2 }}>{highlights[3].icon}</Box>
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
               {highlights[3].title}
             </Typography>
-            <Typography sx={{ color: '#a0a0a0', fontSize: '1.125rem', lineHeight: 1.6 }}>
+            <Typography sx={{ color: COLORS.text.secondary, fontSize: '1.125rem', lineHeight: 1.6 }}>
               {highlights[3].description}
             </Typography>
           </Box>
@@ -253,7 +220,7 @@ const About = () => {
           >
             Proven Track Record at Scale
           </Typography>
-          <Typography sx={{ color: '#a0a0a0', fontSize: '1.125rem', lineHeight: 1.8 }}>
+          <Typography sx={{ color: COLORS.text.secondary, fontSize: '1.125rem', lineHeight: 1.8 }}>
             At Sky, I've delivered features impacting millions of users, driving tens of thousands of subscriptions
             and improving system reliability through innovative solutions in React Native, Node.js, and GCP.
           </Typography>
