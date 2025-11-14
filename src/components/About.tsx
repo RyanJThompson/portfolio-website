@@ -86,7 +86,7 @@ const About = () => {
               fontWeight: 400,
             }}
           >
-            Software Engineer with 3.5+ years of experience building cross-platform applications
+            Software Engineer with 4+ years of experience building cross-platform applications
             at Sky. First Class Honours graduate from University of Leeds specializing in React,
             React Native, TypeScript, and cloud technologies.
           </Typography>

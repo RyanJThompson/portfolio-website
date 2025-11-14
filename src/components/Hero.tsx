@@ -269,7 +269,7 @@ const Hero = () => {
             }}
           >
             {[
-              { number: '3.5+', label: 'Years Experience' },
+              { number: '4+', label: 'Years Experience' },
               { number: 'Sky', label: 'Current Company' },
               { number: '1st', label: 'Class Honours' },
             ].map((stat, index) => (

@@ -321,7 +321,7 @@ const Contact = () => {
                 }}
               >
                 Currently working at Sky as a Front-End Engineer. Open to discussing new opportunities,
-                collaboration, and innovative projects. Phone: +44 7897 075240
+                collaboration, and innovative projects.
               </Typography>
             </Box>
           </Box>
