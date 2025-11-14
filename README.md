@@ -54,6 +54,27 @@ npm run build
 
 The production-ready files will be in the `dist` directory.
 
+## Deployment to GitHub Pages
+
+This project is configured for automatic deployment to GitHub Pages. The deployment happens automatically when you push to the `main` branch.
+
+### Setup Instructions
+
+1. Go to your GitHub repository settings
+2. Navigate to **Pages** under **Code and automation**
+3. Under **Build and deployment**, set:
+   - **Source**: GitHub Actions
+4. Push to the `main` branch to trigger the deployment
+
+The site will be available at: `https://captainlevir.github.io/portfolio-website/`
+
+### Manual Deployment
+
+If you need to manually trigger a deployment:
+1. Go to the **Actions** tab in your GitHub repository
+2. Select the **Deploy to GitHub Pages** workflow
+3. Click **Run workflow**
+
 ## Customization
 
 To personalize this portfolio:
