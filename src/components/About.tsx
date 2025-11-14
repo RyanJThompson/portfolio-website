@@ -38,7 +38,7 @@ const About = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            Front-End Engineer
+            Software Engineer
             <br />
             at Sky
           </Typography>
