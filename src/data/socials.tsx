@@ -17,6 +17,6 @@ export const socialLinks: SocialLink[] = [
   {
     icon: <GitHubIcon />,
     label: 'GitHub',
-    href: 'https://github.com'
+    href: 'https://github.com/RyanJThompson'
   },
 ];
